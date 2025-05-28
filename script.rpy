@@ -3,9 +3,9 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define Eden = Character('Eden', color="#f2c1b6")
+define E = Character('Eden', color="#f2c1b6")
 
-define Lily = Character('Levi', color = "#b07bba" )
+define L = Character('Lily', color = "#b07bba" )
 
 # The game starts here.
 
@@ -18,19 +18,22 @@ label start:
     "Birds are singing, alarms are ringing---"
 
     "Alarms are ringing?"
+
+    
 # To make a line with a speaker, the name has to be in two double quotations as well! 
 label sprites: 
     
-    "Lily" "Wait. What time is it--"
+    show lily mildlyFearful 
 
+    "L" "Wait. What time is it--"
 
-    "Eden" "Hey."
+    "E" "Hey."
 
-    "Lily" "...Hey?" 
+    "L" "...Hey?" 
 
-    "Eden" "If you don't get up, I'm pouring water over your bed. I have mother's permission. So there will be no stopping me."
+    "E" "If you don't get up, I'm pouring water over your bed. I have mother's permission. So there will be no stopping me."
 
-    "Lily" "????"
+    "L" "????"
 
     "Eden walks out of my room promptly out of my room after that statement." 
 
@@ -45,20 +48,28 @@ label sprites:
     menu:
         "Sleep a little longer.":
             jump choice1_sleep
-        "I guess the passage of time will be allowed..":
+            "I guess the passage of time will be allowed..":
             jump choice1_nosleep:
 
     label choice1_sleep: 
         $ menu_flag = True 
-        "Why the hell would I wake up early on a Satruday."
+            "Why the hell would I wake up early on a Satruday."
+            screen end_credit()
+            frame:
+            xalign 0.5 ypos 50
+            text "Roll Credits.": 
+            size 30 
         jump choice1_sleep:
 
     label choice1_nosleep:
         $ menu_flag = False 
-        "No point in sleeping in, the day burns away quicker that way."
-        jump choice1_done:
+            "Lily" "No point in sleeping in, the day burns away quicker that way."
+        jump choice1_done
         
-    label choice1_done:   
+    label choice1_done: 
+
+
+      
 
 # To continue on with the no sleep thing once it's actually selected, since for some reason it's not working with the choice selection. 
 
